@@ -16,31 +16,15 @@ Integration tests were added to the backend side. End-to-end tests should be add
 
 NOTE: You can ommit the usage of docker and start project modules directly (follow the start script as a reference)
 
-## Build
-
-### Backend
-
-Go to the backend folder and enter:
-
-```
-$ ./gradlew build 
-```
-
-### Frontend
-
-Go to the frontend folder and enter:
-
-```
-$ npm install && npm build
-```
-
 ## Start
 
-Execute the start script located in the root folder:
+In order to build and start the application automatically using docker you can just enter:
 
 ```
 $ ./start.sh
 ```
+
+NOTE: The [start script](start.sh) can be seen as a build and execute reference of the project.
 
 ## API Reference
 

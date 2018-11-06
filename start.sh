@@ -1,4 +1,12 @@
 #!/bin/bash
 
-(cd backend && ./gradlew build)
-docker-compose up
+buildBackend() {
+	cd backend && ./gradlew build
+}
+
+run() {
+	docker-compose up
+}
+
+buildBackend
+run
