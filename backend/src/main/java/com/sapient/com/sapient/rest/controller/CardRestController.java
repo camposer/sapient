@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/cards")
+@RequestMapping("/v1/cards")
 public class CardRestController {
     private static final Logger logger = LoggerFactory.getLogger(CardRestController.class);
 
@@ -21,15 +21,15 @@ public class CardRestController {
     private CardService cardService;
     
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public ResponseEntity<String> postCard(@Valid @RequestBody Card card) {
+    public ResponseEntity<RestControllerResponse.Response> postCard(@Valid @RequestBody Card card) {
         try {
             cardService.addCard(card);
         } catch (Exception e) {
             logger.debug("Error adding card", e);
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+            return RestControllerResponse.error(e);
         }
 
-        return new ResponseEntity<>(HttpStatus.OK);
+        return RestControllerResponse.success();
     }
 
     @RequestMapping(value = "", method = RequestMethod.GET)

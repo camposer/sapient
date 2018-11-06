@@ -43,7 +43,7 @@ public class CardRestControllerTest {
 
     @Before
     public void setUp() throws Exception {
-        base = new URL("http://localhost:" + port + "/cards");
+        base = new URL("http://localhost:" + port + "/v1/cards");
         validCard = new Card(validCardNumber, cardHolderName, cardLimit);
     }
 
@@ -139,7 +139,7 @@ public class CardRestControllerTest {
 
         Card duplicatedValidCard = new Card(validCardNumber, "George Harrison", 300d);
         response = template.postForEntity(base.toString(), duplicatedValidCard, String.class);
-        assertThat(response.getStatusCodeValue(), equalTo(400));
+        assertThat(response.getStatusCodeValue(), equalTo(500));
         assertThat(response.getBody(), allOf(containsString("Card number"), containsString("unique")));
 
         Card expected = new Card(validCardNumber, cardHolderName, cardLimit);
