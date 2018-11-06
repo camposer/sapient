@@ -1,0 +1,11 @@
+version: "2"
+services:
+  node:
+    image: "java:8"
+    ports: 
+      - "8080:8080"
+    working_dir: /home/sapient
+    volumes:
+      - ./backend/build/libs:/home/sapient/app
+    command: "java -jar app/sapient-backend-0.1.0.jar"
+
