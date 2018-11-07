@@ -24,14 +24,14 @@ In order to build and start the application automatically using docker you can j
 $ ./start.sh
 ```
 
-NOTE: The [start script](start.sh) can be seen as a build and execute reference of the project.
+NOTE: The [start script](start.sh) and [docker-compose yaml](docker-compose.yml) files can be seen as a build and execute reference of the project.
 
-## API Reference
+## API Reference v1
 
-### GET /cards
+### GET /v1/cards
 
 ```
-$ curl -X GET http://localhost:8080/cards
+$ curl -X GET http://localhost:8080/v1/cards
 [
 	{
 		id: 1,
@@ -44,11 +44,11 @@ $ curl -X GET http://localhost:8080/cards
 ]
 ```
 
-### POST /cards
+### POST /v1/cards
 
 ```
 $ curl -X POST -H "Content-Type: application/json" \
 	-d '{ "number": "4900000000000086", "holderName": "John Lennon", "limit": 200 }' \
-	http://localhost:8080/cards
+	http://localhost:8080/v1/cards
 ```
 

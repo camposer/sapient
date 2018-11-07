@@ -1,11 +1,24 @@
 version: "2"
 services:
-  node:
+  backend:
     image: "java:8"
+    # backend port intentionally left exposed for API testing
     ports: 
       - "8080:8080"
     working_dir: /home/sapient
     volumes:
       - ./backend/build/libs:/home/sapient/app
     command: "java -jar app/sapient-backend-0.1.0.jar"
+
+  frontend:
+    image: "node:8"
+    user: "node"
+    ports: 
+      - "4200:4200"
+    working_dir: /home/sapient/app
+    volumes:
+      - ./frontend:/home/sapient/app
+    links:
+      - backend
+    command: "npm run serve:prod"
 
