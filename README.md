@@ -14,7 +14,9 @@ Integration tests were added to the backend side. End-to-end tests should be add
 - Docker 18+
 - Docker Compose 1.18+
 
-NOTE: You can ommit the usage of docker and start project modules directly (follow the start script as a reference)
+NOTES: 
+- You can ommit the usage of docker and start project modules directly (follow the start script as a reference)
+- Build process occurs locally and not in docker containers for performance sake
 
 ## Start
 
@@ -23,6 +25,8 @@ In order to build and start the application automatically using docker you can j
 ```
 $ ./start.sh
 ```
+
+Enter in your browser: http://localhost:4200
 
 NOTE: The [start script](start.sh) and [docker-compose yaml](docker-compose.yml) files can be seen as a build and execute reference of the project.
 
